@@ -7,5 +7,27 @@ require "request_handlers/get_request_handler"
 
 module HttpRequestHandler
   class Error < StandardError; end
-  # Your code goes here...
+
+  def self.send_request(http_method, options)
+    handler = get_request_handler(http_method).new(options)
+    Rails.logger.debug "Request #{handler.inspect}"
+    return hit_and_get(handler)
+  end
+
+  def self.send_post_request(options)
+    send_request('Post', options)
+  end
+
+  def self.send_put_request(options)
+    self.send_request('Put', options)
+  end
+
+  def self.get_request_handler(http_method)
+    return "RequestHandlers::#{http_method.downcase.camelize}RequestHandler".constantize
+  end
+
+  def self.hit_and_get(handler)
+    handler.send_request
+    return handler.response_struct
+  end
 end
