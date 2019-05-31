@@ -15,11 +15,11 @@ module HttpRequestHandler
   end
 
   def self.send_post_request(options)
-    send_request('Post', options)
+    send_request(POST, options)
   end
 
   def self.send_put_request(options)
-    self.send_request('Put', options)
+    self.send_request(PUT, options)
   end
 
   def self.get_request_handler(http_method)
@@ -30,4 +30,9 @@ module HttpRequestHandler
     handler.send_request
     return handler.response_struct
   end
+
+  POST = "post"
+  PUT = "put"
+  GET = "get"
+  DELETE = "delete"
 end

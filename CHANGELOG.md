@@ -6,15 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2019-05-31
+### Added
+- Constants added for string values get, post, put and delete in GET, POST, PUT, DELETE respectively
+
+## [1.1.0] - 2019-05-31
+### Added
+- Module interface methods to access library in HttpRequestHandler
+
 ## [1.0.0] - 2019-05-31
 ### Added
 - change log CHANGELOG.md
 - library classes for HTTP request handling
-### Changed
-### Removed
 
 ## [0.1.0] - 2019-05-31
 ### Added
 - Project init done with gem spec changes
-### Changed
-### Removed
